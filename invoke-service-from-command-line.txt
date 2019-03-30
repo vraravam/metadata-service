@@ -1,0 +1,10 @@
+# Run from within the minikube ssh
+# The ip address is the ClusterIP for the 'metadata-service' [k8s] service obtained from 'kubectl get svc'
+
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"group":"Vijay Raghavan Aravamudhan","name":"city","value":"Chennai"}' \
+  http://10.107.159.198:80/metadata
+
+# The Id is the one returned from the above curl
+curl http://10.107.159.198:80/metadata/<Id>

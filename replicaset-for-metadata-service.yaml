@@ -1,11 +1,12 @@
-apiVersion: v1
-kind: ReplicationController
+apiVersion: apps/v1
+kind: ReplicaSet
 metadata:
   name: metadata-service
 spec:
   replicas: 3
   selector:
-    app: node-app
+    matchLabels:
+      app: node-app
   template:
     metadata:
       name: metadata-service
@@ -14,7 +15,7 @@ spec:
     spec:
       containers:
         - name: metadata-service
-          image: vraravam/metadata-service:1.0.0
+          image: vraravam/metadata-service:1.0.1
           ports:
             - containerPort: 8080
           livenessProbe:
