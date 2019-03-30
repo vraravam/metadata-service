@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
   name: metadata-service
 spec:
@@ -24,3 +24,7 @@ spec:
               port: 8080
             initialDelaySeconds: 25
             periodSeconds: 3
+          resources:
+            limits:
+              memory: "200Mi"
+              cpu: "128M"
