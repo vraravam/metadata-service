@@ -5,11 +5,24 @@ metadata:
   labels:
     name: metadata-service
 spec:
+  volumes:
+    - name: html-docs
+      emptyDir: {}
   containers:
-  - name: metadata-service
-    image: vraravam/metadata-service:1.0.0
-    ports:
-      - containerPort: 8080
+    - name: metadata-service
+      image: vraravam/metadata-service:1.0.0
+      ports:
+        - containerPort: 8080
+      volumeMounts:
+        - name: html-docs
+          mountPath: /location1
+    - name: vijay-service
+      image: vraravam/metadata-service:1.0.0
+      ports:
+        - containerPort: 8080
+      volumeMounts:
+        - name: html-docs
+          mountPath: /location2
 
 # Run the file using these commands:
 # kubectl create -f single-container.kube.yaml
