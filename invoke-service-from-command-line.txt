@@ -4,7 +4,7 @@
 curl --header "Content-Type: application/json" \
   --request POST \
   --data '{"group":"Vijay Raghavan Aravamudhan","name":"city","value":"Chennai"}' \
-  http://10.107.159.198:80/metadata
+  http://10.96.0.1:80/metadata
 
 # The Id is the one returned from the above curl
-curl http://10.107.159.198:80/metadata/<Id>
+curl http://10.96.0.1:80/metadata/<Id>

@@ -30,7 +30,7 @@ spec:
           resources:
             limits:
               memory: "200Mi"
-              cpu: "128M"
+              cpu: "12M"
 ---
 apiVersion: v1
 kind: ConfigMap
