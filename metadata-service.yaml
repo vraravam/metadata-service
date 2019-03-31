@@ -27,10 +27,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: metadata-service-config-map
-          resources:
-            limits:
-              memory: "200Mi"
-              cpu: "12M"
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -38,3 +34,16 @@ metadata:
   name: metadata-service-config-map
 data:
   MONGO_URL: mongodb://service-for-standalone-mongo/metadata
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: metadata-service
+spec:
+  selector:
+    app: node-app
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080

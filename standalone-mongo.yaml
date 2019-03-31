@@ -13,11 +13,19 @@ spec:
       labels:
         app: standalone-mongo-for-metadata-service
     spec:
+      volumes:
+        - name: data-dir
+          hostPath:
+            path: /data/mongo-data
+            type: Directory
       containers:
         - name: standalone-mongo-for-metadata-service
           image: vraravam/mongo:1.0
           ports:
             - containerPort: 27017
+          volumeMounts:
+            - name: data-dir
+              mountPath: /data/db
 ---
 apiVersion: v1
 kind: Service

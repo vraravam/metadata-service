@@ -19,7 +19,7 @@ spec:
     - name: vijay-service
       image: vraravam/metadata-service:1.0.0
       ports:
-        - containerPort: 8080
+        - containerPort: 8081
       volumeMounts:
         - name: html-docs
           mountPath: /location2
